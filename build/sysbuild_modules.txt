@@ -1,0 +1,1 @@
+"mcuboot":"D:/SDU/bachelor_project/zephyr-workspace/bootloader/mcuboot":"D:/SDU/bachelor_project/zephyr-workspace/bootloader/mcuboot/boot/zephyr/sysbuild"

@@ -1,0 +1,31 @@
+empty_file.o: \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/misc/empty_file.c \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/rpi_pico/rpi_pico_rp2040_w.dts \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/rpi_pico/rpi_pico-common.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/dts/common/freq.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/dts/arm/raspberrypi/rpi_pico/rp2040.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/dts/arm/armv6-m.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/dts/common/skeleton.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/adc/adc.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/dt-util.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_macro.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_loops.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_listify.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_is_eq.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_util_inc.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_util_dec.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_util_x2.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/gpio/gpio.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/clock/rpi_pico_rp2040_clock.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/clock/rpi_pico_clock_common.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/i2c/i2c.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/regulator/rpi_pico.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/reset/rp2040_reset.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/dts/common/mem.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/dts/arm/raspberrypi/rpi_pico/override.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/rpi_pico/rpi_pico-pinctrl.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pinctrl/rpi-pico-pinctrl-common.h \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/common/rpi_pico-pinctrl-common.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pwm/pwm.h
