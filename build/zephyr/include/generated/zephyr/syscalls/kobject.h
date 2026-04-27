@@ -69,29 +69,6 @@ static inline void k_object_release(const void * object)
 #endif
 
 
-extern int z_impl_k_object_access_check(const void * object);
-
-__pinned_func
-static inline int k_object_access_check(const void * object)
-{
-#ifdef CONFIG_USERSPACE
-	if (z_syscall_trap()) {
-		union { uintptr_t x; const void * val; } parm0 = { .val = object };
-		return (int) arch_syscall_invoke1(parm0.x, K_SYSCALL_K_OBJECT_ACCESS_CHECK);
-	}
-#endif
-	compiler_barrier();
-	return z_impl_k_object_access_check(object);
-}
-
-#if defined(CONFIG_TRACING_SYSCALL)
-#ifndef DISABLE_SYSCALL_TRACING
-
-#define k_object_access_check(object) ({ 	int syscall__retval; 	sys_port_trace_syscall_enter(K_SYSCALL_K_OBJECT_ACCESS_CHECK, k_object_access_check, object); 	syscall__retval = k_object_access_check(object); 	sys_port_trace_syscall_exit(K_SYSCALL_K_OBJECT_ACCESS_CHECK, k_object_access_check, object, syscall__retval); 	syscall__retval; })
-#endif
-#endif
-
-
 extern void * z_impl_k_object_alloc(enum k_objects otype);
 
 __pinned_func

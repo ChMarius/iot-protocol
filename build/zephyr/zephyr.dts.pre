@@ -36,10 +36,8 @@
 / {
  #address-cells = <1>;
  #size-cells = <1>;
-
- chosen {};
-
- aliases {};
+ chosen { };
+ aliases { };
 };
 # 4 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/dts/arm/armv6-m.dtsi" 2 3 4
 
@@ -75,24 +73,24 @@
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 1 3 4
 # 18 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 3 4
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_loops.h" 1 3 4
-# 1465 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_loops.h" 3 4
+# 1083 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_loops.h" 3 4
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_listify.h" 1 3 4
-# 1466 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_loops.h" 2 3 4
+# 1084 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_loops.h" 2 3 4
 # 19 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
-# 203 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 162 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 3 4
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_is_eq.h" 1 3 4
-# 204 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
-# 234 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 3 4
+# 163 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 193 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 3 4
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_util_inc.h" 1 3 4
-# 235 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 194 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
 
 
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_util_dec.h" 1 3 4
-# 238 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 197 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
 
 
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal_util_x2.h" 1 3 4
-# 241 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
+# 200 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_internal.h" 2 3 4
 # 35 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/sys/util_macro.h" 2 3 4
 # 20 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/dt-util.h" 2 3 4
 # 10 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/adc/adc.h" 2 3 4
@@ -222,8 +220,8 @@
    compatible = "raspberrypi,pico-pll";
    clocks = <&xosc>;
    clock-names = "xosc";
-   clock-div = <1>;
-   fb-div = <125>;
+   clock-div= <1>;
+   fb-div= <125>;
    post-div1 = <6>;
    post-div2 = <2>;
    #clock-cells = <0>;
@@ -233,7 +231,7 @@
    compatible = "raspberrypi,pico-pll";
    clocks = <&xosc>;
    clock-names = "xosc";
-   clock-div = <1>;
+   clock-div= <1>;
    fb-div = <100>;
    post-div1 = <5>;
    post-div2 = <5>;
@@ -298,14 +296,14 @@
     compatible = "soc-nv-flash";
     write-block-size = <1>;
     erase-block-size = <((4) * 1024)>;
-    #address-cells = <1>;
-    #size-cells = <1>;
    };
   };
 
   reset: reset-controller@4000c000 {
    compatible = "raspberrypi,pico-reset";
    reg = <0x4000c000 ((4) * 1024)>;
+   reg-width = <4>;
+   active-low = <0>;
    #reset-cells = <1>;
   };
 
@@ -325,10 +323,10 @@
      <&pll_sys>, <&pll_usb>, <&xosc>, <&rosc>, <&rosc_ph>,
      <&gpin0>, <&gpin1>;
    clock-names = "clk_gpout0", "clk_gpout1", "clk_gpout2", "clk_gpout3",
-          "clk_ref", "clk_sys", "clk_peri",
-          "clk_usb", "clk_adc", "clk_rtc",
-          "pll_sys", "pll_usb", "xosc", "rosc", "rosc_ph",
-          "gpin0", "gpin1";
+     "clk_ref", "clk_sys", "clk_peri",
+     "clk_usb", "clk_adc", "clk_rtc",
+     "pll_sys", "pll_usb", "xosc", "rosc", "rosc_ph",
+     "gpin0", "gpin1";
   };
 
   gpio0_map: gpio@40014000 {
@@ -504,9 +502,6 @@
    reg = <0x50200000 ((4) * 1024)>;
    clocks = <&clocks 5>;
    resets = <&reset 10>;
-   interrupts = <7 3>,
-         <8 3>;
-   interrupt-names = "irq0", "irq1";
    status = "disabled";
   };
 
@@ -515,9 +510,6 @@
    reg = <0x50300000 ((4) * 1024)>;
    clocks = <&clocks 5>;
    resets = <&reset 11>;
-   interrupts = <9 3>,
-         <10 3>;
-   interrupt-names = "irq0", "irq1";
    status = "disabled";
   };
 
@@ -530,34 +522,6 @@
    alarms-count = <1>;
    status = "disabled";
   };
-
-  sio: sio@d0000000 {
-   compatible = "raspberrypi,pico-sio";
-   reg = <0xd0000000 0x180>;
-
-   mbox: mbox {
-    compatible = "raspberrypi,pico-mbox";
-    interrupts = <15 3>,
-          <16 3>;
-    interrupt-names = "mbox0", "mbox1";
-    fifo-depth = <8>;
-    #mbox-cells = <0>;
-    status = "disabled";
-   };
-  };
- };
-
- ipm_mbox: ipm-mbox {
-
-
-
-
-
-
-  compatible = "zephyr,mbox-ipm";
-  mboxes = <&mbox>, <&mbox>;
-  mbox-names = "tx", "rx";
-  status = "disabled";
  };
 
  pinctrl: pin-controller {
@@ -587,7 +551,7 @@
 # 16 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h" 2 3 4
 # 7 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/rpi_pico/rpi_pico-pinctrl.dtsi" 2
 
-# 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/common/rpi_pico-pinctrl-common.dtsi" 1
+# 1 "d:\\sdu\\bachelor_project\\zephyr-workspace\\zephyr\\boards\\raspberrypi\\common\\rpi_pico-pinctrl-common.dtsi" 1
 
 
 
@@ -599,7 +563,6 @@
   group1 {
    pinmux = <(((0) << 5) | ((2) << 0))>;
   };
-
   group2 {
    pinmux = <(((1) << 5) | ((2) << 0))>;
    input-enable;
@@ -626,7 +589,6 @@
   group1 {
    pinmux = <(((17) << 5) | ((1) << 0))>, <(((18) << 5) | ((1) << 0))>, <(((19) << 5) | ((1) << 0))>;
   };
-
   group2 {
    pinmux = <(((16) << 5) | ((1) << 0))>;
    input-enable;
@@ -653,6 +615,7 @@
 
 
 
+
 / {
  chosen {
   zephyr,sram = &sram0;
@@ -674,37 +637,36 @@
   gpio-map-mask = <0xffffffff 0xffffffc0>;
   gpio-map-pass-thru = <0 0x3f>;
   gpio-map = <0 0 &gpio0 0 0>,
-      <1 0 &gpio0 1 0>,
-      <2 0 &gpio0 2 0>,
-      <3 0 &gpio0 3 0>,
-      <4 0 &gpio0 4 0>,
-      <5 0 &gpio0 5 0>,
-      <6 0 &gpio0 6 0>,
-      <7 0 &gpio0 7 0>,
-      <8 0 &gpio0 8 0>,
-      <9 0 &gpio0 9 0>,
-      <10 0 &gpio0 10 0>,
-      <11 0 &gpio0 11 0>,
-      <12 0 &gpio0 12 0>,
-      <13 0 &gpio0 13 0>,
-      <14 0 &gpio0 14 0>,
-      <15 0 &gpio0 15 0>,
-      <16 0 &gpio0 16 0>,
-      <17 0 &gpio0 17 0>,
-      <18 0 &gpio0 18 0>,
-      <19 0 &gpio0 19 0>,
-      <20 0 &gpio0 20 0>,
-      <21 0 &gpio0 21 0>,
-      <22 0 &gpio0 22 0>,
-      <26 0 &gpio0 26 0>,
-      <27 0 &gpio0 27 0>,
-      <28 0 &gpio0 28 0>;
+   <1 0 &gpio0 1 0>,
+   <2 0 &gpio0 2 0>,
+   <3 0 &gpio0 3 0>,
+   <4 0 &gpio0 4 0>,
+   <5 0 &gpio0 5 0>,
+   <6 0 &gpio0 6 0>,
+   <7 0 &gpio0 7 0>,
+   <8 0 &gpio0 8 0>,
+   <9 0 &gpio0 9 0>,
+   <10 0 &gpio0 10 0>,
+   <11 0 &gpio0 11 0>,
+   <12 0 &gpio0 12 0>,
+   <13 0 &gpio0 13 0>,
+   <14 0 &gpio0 14 0>,
+   <15 0 &gpio0 15 0>,
+   <16 0 &gpio0 16 0>,
+   <17 0 &gpio0 17 0>,
+   <18 0 &gpio0 18 0>,
+   <19 0 &gpio0 19 0>,
+   <20 0 &gpio0 20 0>,
+   <21 0 &gpio0 21 0>,
+   <22 0 &gpio0 22 0>,
+   <26 0 &gpio0 26 0>,
+   <27 0 &gpio0 27 0>,
+   <28 0 &gpio0 28 0>;
  };
 };
 
 &flash0 {
  reg = <0x10000000 (((2) * 1024) * 1024)>;
- ranges = <0x0 0x10000000 (((2) * 1024) * 1024)>;
 
  partitions {
   compatible = "fixed-partitions";
@@ -796,18 +758,9 @@ zephyr_udc0: &usbd {
 };
 
 pico_spi: &spi0 {};
-
-pico_spi0: &spi0 {};
-
-pico_i2c: &i2c0 {};
-
 pico_i2c0: &i2c0 {};
-
 pico_i2c1: &i2c1 {};
-
 pico_serial: &uart0 {};
-
-pico_serial0: &uart0 {};
 # 11 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/rpi_pico/rpi_pico_rp2040_w.dts" 2
 
 &pinctrl {
@@ -829,6 +782,7 @@ pico_serial0: &uart0 {};
  airoc_wifi_host_wake: airoc_wifi_host_wake {
 
   group1 {
+
    pinmux = <(((24) << 5) | ((5) << 0))>;
    input-enable;
   };
@@ -840,7 +794,7 @@ pico_serial0: &uart0 {};
 
  pio0_spi0: pio0_spi0 {
   compatible = "raspberrypi,pico-spi-pio";
-  clocks = <&clocks 5>;
+  clocks = < &clocks 5 >;
   #address-cells = <1>;
   #size-cells = <0>;
   cs-gpios = <&gpio0 25 (1 << 0)>;
@@ -849,29 +803,34 @@ pico_serial0: &uart0 {};
   pinctrl-0 = <&pio0_spi0_default>;
   pinctrl-names = "default";
   status = "okay";
-
   airoc-wifi@0 {
    compatible = "infineon,airoc-wifi";
-   reg = <0>;
-   wifi-reg-on-gpios = <&gpio0 23 (0 << 0)>;
-   bus-select-gpios = <&gpio0 24 (0 << 0)>;
-   wifi-host-wake-gpios = <&gpio0 24 (0 << 0)>;
-   spi-max-frequency = <10000000>;
+   reg = < 0 >;
+   wifi-reg-on-gpios = < &gpio0 23 (0 << 0) >;
+   bus-select-gpios = < &gpio0 24 (0 << 0) >;
+   wifi-host-wake-gpios = < &gpio0 24 (0 << 0) >;
+   spi-max-frequency = < 10000000 >;
    spi-half-duplex;
    spi-data-irq-shared;
    pinctrl-0 = <&airoc_wifi_default>;
    pinctrl-1 = <&airoc_wifi_host_wake>;
    pinctrl-names = "default", "host_wake";
    status = "okay";
-
-   cyw43_gpio: gpio {
-    compatible = "infineon,cyw43-gpio";
-    gpio-controller;
-    #gpio-cells = <2>;
-    ngpios = <3>;
-   };
   };
  };
+};
+# 0 "<command-line>" 2
+# 1 "D:/SDU/bachelor_project/iot_protocol/boards/rpi_pico_rp2040_w.overlay" 1
+/ {
+    chosen {
+        zephyr,console = &cdc_acm_uart0;
+    };
+};
+
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+    };
 };
 # 0 "<command-line>" 2
 # 1 "D:/SDU/bachelor_project/zephyr-workspace/zephyr/misc/empty_file.c"

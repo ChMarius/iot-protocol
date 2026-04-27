@@ -1,7 +1,7 @@
-set(CMAKE_C_COMPILER "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc.exe")
+set(CMAKE_C_COMPILER "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc.exe")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
-set(CMAKE_C_COMPILER_VERSION "14.3.0")
+set(CMAKE_C_COMPILER_VERSION "12.2.0")
 set(CMAKE_C_COMPILER_VERSION_INTERNAL "")
 set(CMAKE_C_COMPILER_WRAPPER "")
 set(CMAKE_C_STANDARD_COMPUTED_DEFAULT "17")
@@ -24,11 +24,11 @@ set(CMAKE_C_COMPILER_ARCHITECTURE_ID "")
 
 
 
-set(CMAKE_AR "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar.exe")
-set(CMAKE_C_COMPILER_AR "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar.exe")
-set(CMAKE_RANLIB "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib.exe")
-set(CMAKE_C_COMPILER_RANLIB "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib.exe")
-set(CMAKE_LINKER "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-ld.exe")
+set(CMAKE_AR "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-ar.exe")
+set(CMAKE_C_COMPILER_AR "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ar.exe")
+set(CMAKE_RANLIB "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-ranlib.exe")
+set(CMAKE_C_COMPILER_RANLIB "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gcc-ranlib.exe")
+set(CMAKE_LINKER "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-ld.exe")
 set(CMAKE_LINKER_LINK "")
 set(CMAKE_LINKER_LLD "")
 set(CMAKE_C_COMPILER_LINKER "NOTFOUND")
@@ -79,7 +79,7 @@ endif()
 
 
 
-set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/14.3.0/include;D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/14.3.0/include-fixed;D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/arm-zephyr-eabi/sys-include;D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/arm-zephyr-eabi/include")
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/12.2.0/include;D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/lib/gcc/arm-zephyr-eabi/12.2.0/include-fixed;D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/arm-zephyr-eabi/sys-include;D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/arm-zephyr-eabi/include")
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

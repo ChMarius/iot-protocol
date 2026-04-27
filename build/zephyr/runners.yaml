@@ -21,10 +21,7 @@ config:
   bin_file: zephyr.bin
   uf2_file: zephyr.uf2
   # Host tools:
-  gdb: D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb.exe
-  openocd: D:/SDU/zephyr_sdk/hosttools/openocd/bin/openocd.exe
-  openocd_search:
-    - D:/SDU/zephyr_sdk/hosttools/openocd/share/openocd/scripts
+  gdb: D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-gdb.exe
 
 # Runner specific arguments
 args:

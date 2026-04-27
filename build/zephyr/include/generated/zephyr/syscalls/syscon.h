@@ -94,32 +94,6 @@ static inline int syscon_write_reg(const struct device * dev, uint16_t reg, uint
 #endif
 
 
-extern int z_impl_syscon_update_bits(const struct device * dev, uint16_t reg, uint32_t mask, uint32_t val);
-
-__pinned_func
-static inline int syscon_update_bits(const struct device * dev, uint16_t reg, uint32_t mask, uint32_t val)
-{
-#ifdef CONFIG_USERSPACE
-	if (z_syscall_trap()) {
-		union { uintptr_t x; const struct device * val; } parm0 = { .val = dev };
-		union { uintptr_t x; uint16_t val; } parm1 = { .val = reg };
-		union { uintptr_t x; uint32_t val; } parm2 = { .val = mask };
-		union { uintptr_t x; uint32_t val; } parm3 = { .val = val };
-		return (int) arch_syscall_invoke4(parm0.x, parm1.x, parm2.x, parm3.x, K_SYSCALL_SYSCON_UPDATE_BITS);
-	}
-#endif
-	compiler_barrier();
-	return z_impl_syscon_update_bits(dev, reg, mask, val);
-}
-
-#if defined(CONFIG_TRACING_SYSCALL)
-#ifndef DISABLE_SYSCALL_TRACING
-
-#define syscon_update_bits(dev, reg, mask, val) ({ 	int syscall__retval; 	sys_port_trace_syscall_enter(K_SYSCALL_SYSCON_UPDATE_BITS, syscon_update_bits, dev, reg, mask, val); 	syscall__retval = syscon_update_bits(dev, reg, mask, val); 	sys_port_trace_syscall_exit(K_SYSCALL_SYSCON_UPDATE_BITS, syscon_update_bits, dev, reg, mask, val, syscall__retval); 	syscall__retval; })
-#endif
-#endif
-
-
 extern int z_impl_syscon_get_size(const struct device * dev, size_t * size);
 
 __pinned_func

@@ -17,7 +17,7 @@
 rule ASM_COMPILER__boot_stage2_unscanned_
   depfile = $DEP_FILE
   deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}D:\SDU\zephyr_sdk\gnu\arm-zephyr-eabi\bin\arm-zephyr-eabi-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  command = ${LAUNCHER}${CODE_CHECK}D:\SDU\zephyr-sdk-0.17.4_windows-x86_64\zephyr-sdk-0.17.4\arm-zephyr-eabi\bin\arm-zephyr-eabi-gcc.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
   description = Building ASM object $out
 
 
@@ -25,7 +25,7 @@ rule ASM_COMPILER__boot_stage2_unscanned_
 # Rule for linking ASM executable.
 
 rule ASM_EXECUTABLE_LINKER__boot_stage2_
-  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDU\zephyr_sdk\gnu\arm-zephyr-eabi\bin\arm-zephyr-eabi-gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  command = C:\WINDOWS\system32\cmd.exe /C "$PRE_LINK && D:\SDU\zephyr-sdk-0.17.4_windows-x86_64\zephyr-sdk-0.17.4\arm-zephyr-eabi\bin\arm-zephyr-eabi-gcc.exe $FLAGS $LINK_FLAGS $in -o $TARGET_FILE $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking ASM executable $TARGET_FILE
   restat = $RESTAT
 

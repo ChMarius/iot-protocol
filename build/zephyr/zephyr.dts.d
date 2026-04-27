@@ -27,5 +27,6 @@ empty_file.o: \
  D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/rpi_pico/rpi_pico-pinctrl.dtsi \
  D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pinctrl/rpi-pico-rp2040-pinctrl.h \
  D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pinctrl/rpi-pico-pinctrl-common.h \
- D:/SDU/bachelor_project/zephyr-workspace/zephyr/boards/raspberrypi/common/rpi_pico-pinctrl-common.dtsi \
- D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pwm/pwm.h
+ d:\sdu\bachelor_project\zephyr-workspace\zephyr\boards\raspberrypi\common\rpi_pico-pinctrl-common.dtsi \
+ D:/SDU/bachelor_project/zephyr-workspace/zephyr/include/zephyr/dt-bindings/pwm/pwm.h \
+ D:/SDU/bachelor_project/iot_protocol/boards/rpi_pico_rp2040_w.overlay

@@ -34,12 +34,7 @@ endif()
 
 # Set path to fallback-tool for dependency-resolution.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "D:/SDU/zephyr_sdk/gnu/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump.exe")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
-  include("D:/SDU/bachelor_project/iot_protocol/build/zephyr/subsys/portability/posix/cmake_install.cmake")
+  set(CMAKE_OBJDUMP "D:/SDU/zephyr-sdk-0.17.4_windows-x86_64/zephyr-sdk-0.17.4/arm-zephyr-eabi/bin/arm-zephyr-eabi-objdump.exe")
 endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
