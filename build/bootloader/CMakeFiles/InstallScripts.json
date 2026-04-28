@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"D:/SDU/bachelor_project/iot_protocol/build/bootloader/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

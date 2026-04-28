@@ -1,7 +1,0 @@
-# ninja log v7
-5	93	7988429028085116	CMakeFiles/boot_stage2.dir/D_/SDU/bachelor_project/zephyr-workspace/modules/hal/rpi_pico/src/rp2040/boot_stage2/boot2_w25q080.S.obj	8e689338e2d537c3
-95	341	7988429031261911	boot_stage2	79a8a566c9720a48
-95	341	7988429031261911	boot_stage2.bin	79a8a566c9720a48
-95	341	7988429031261911	boot_stage2.S	79a8a566c9720a48
-95	341	7988429031261911	D:/SDU/bachelor_project/iot_protocol/build/bootloader/boot_stage2.bin	79a8a566c9720a48
-95	341	7988429031261911	D:/SDU/bachelor_project/iot_protocol/build/bootloader/boot_stage2.S	79a8a566c9720a48

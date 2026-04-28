@@ -1,3 +1,0 @@
-D:/SDU/bachelor_project/iot_protocol/build/bootloader/CMakeFiles/boot_stage2.dir
-D:/SDU/bachelor_project/iot_protocol/build/bootloader/CMakeFiles/edit_cache.dir
-D:/SDU/bachelor_project/iot_protocol/build/bootloader/CMakeFiles/rebuild_cache.dir

@@ -1,5 +1,0 @@
-west:
-  command: C:\Users\chiri\scoop\apps\python313\current\Scripts\west build -b rpi_pico/rp2040/w
-    --pristine
-  topdir: D:\SDU\bachelor_project\zephyr-workspace
-  version: 1.5.0
