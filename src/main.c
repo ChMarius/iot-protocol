@@ -11,7 +11,10 @@
 #define SERVER_IP    ""
 #define SERVER_PORT  5000
 
-static int sock;
+#define ROTATION_INTERVAL 10 /* rotate ports every n sends*/
+
+static int sock = -1;
+static int send_count = 0;
 static struct sockaddr_in server;
 
 /* WiFi state tracking */
@@ -22,7 +25,6 @@ static bool wifi_connected = false;
 static struct net_mgmt_event_callback wifi_cb;
 static struct net_mgmt_event_callback dhcp_cb;
 
-/* Add this semaphore alongside your existing wifi one */
 static K_SEM_DEFINE(dhcp_ready_sem, 0, 1);
 
 static void wifi_event_handler(struct net_mgmt_event_callback *cb,
@@ -120,31 +122,38 @@ void init_server_addr(void)
     }
 }
 
-void open_socket(void)
+void prepare_socket(void)
 {
     /* Small delay to let the network stack fully settle after DHCP */
     k_msleep(500);
 
-    sock = zsock_socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    /* Open socket if not open, or if rotation interval reached */
+    if (sock < 0 || send_count >= ROTATION_INTERVAL) {
+        if (sock >= 0) {
+            zsock_close(sock);
+            printk("transport: port rotated after %d sends\n", send_count);
+        }
+    
+        sock = zsock_socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
 
-    /* In Zephyr, valid fds start at 0 but -1 or negative means error */
-    /* Check errno to confirm */
-    if (sock < 0) {
-        printk("Failed to open socket (err %d, errno %d)\n", sock, errno);
-        return;
-    }
+        /* In Zephyr, valid fds start at 0 but -1 or negative means error */
+        if (sock < 0) {
+            printk("Failed to open socket (err %d, errno %d)\n", sock, errno);
+            return;
+        }
 
-    printk("Socket opened (fd=%d)\n", sock);
+        printk("Socket opened (fd=%d)\n", sock);
 
-    struct zsock_timeval timeout = {
-        .tv_sec  = 30,
-        .tv_usec = 0
-    };
+        struct zsock_timeval timeout = {
+            .tv_sec  = 30,
+            .tv_usec = 0
+        };
 
-    int ret = zsock_setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO,
-                                &timeout, sizeof(timeout));
-    if (ret < 0) {
-        printk("Failed to set socket timeout (err %d)\n", ret);
+        int ret = zsock_setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO,
+                                    &timeout, sizeof(timeout));
+        if (ret < 0) {
+            printk("Failed to set socket timeout (err %d)\n", ret);
+        }
     }
 }
 
@@ -159,10 +168,13 @@ void send_message(void)
                             sizeof(server));
     if (sent < 0) {
         printk("Send failed (err %d)\n", sent);
+        zsock_close(sock);
+        sock = -1;
         return;
     }
-
-    printk("Sent %d bytes\n", sent);
+ 
+    send_count++;
+    printk("Sent %d bytes\n", sent, send_count, ROTATION_INTERVAL);
 }
 
 void receive_ack(void)
@@ -185,13 +197,6 @@ void receive_ack(void)
     printk("ACK received: %s\n", ack_buf);
 }
 
-void close_socket(void)
-{
-    zsock_close(sock);
-    printk("Socket closed (fd=%d released)\n", sock);
-    sock = -1;
-}
-
 int main(void)
 {
     usb_enable(NULL);
@@ -208,10 +213,9 @@ int main(void)
     init_server_addr();
     while(1)
     {
-       open_socket();
+       prepare_socket();
        send_message();
        receive_ack();
-       close_socket();
        k_msleep(5000);
     }
     
