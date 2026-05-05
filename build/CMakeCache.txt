@@ -107,6 +107,8 @@ _Python3_EXECUTABLE_DEBUG:INTERNAL=_Python3_EXECUTABLE_DEBUG-NOTFOUND
 //Python3 Properties
 _Python3_INTERPRETER_PROPERTIES:INTERNAL=Python;3;12;7;64;<none>;cp312-mingw_x86_64_ucrt_gnu.pyd;;C:/msys64/ucrt64/lib/python3.12;C:/msys64/ucrt64/lib/python3.12;C:/msys64/ucrt64/lib/python3.12/site-packages;C:/msys64/ucrt64/lib/python3.12/site-packages
 _Python3_INTERPRETER_SIGNATURE:INTERNAL=fc0f0ab16fcbc6a3c5f5df876d40126b
+//Interpreter reason failure
+_Python3_Interpreter_REASON_FAILURE:INTERNAL=
 //NumPy reason failure
 _Python3_NumPy_REASON_FAILURE:INTERNAL=
 
