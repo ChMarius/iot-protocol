@@ -7,10 +7,57 @@
 
 void send_message(void)
 {
-    const char *msg = "Hello from Pico W!";
+    uint8_t buffer[MSG_MAX_PACKET_LEN];
+    struct msg_packet pkt;
 
+    struct msg_header header = {
+        .device_type = 0x01,
+        .device_id = 0x0001,
+        .protocol_version = 0x01,
+        .flag = 0x00,
+        .command = IOTP_CMD_POST,
+    };
+
+    int rc;
+
+    /* Initialize packet and write the fixed header */
+    rc = msg_packet_init(&pkt,
+                          buffer,
+                          sizeof(buffer),
+                          &header);
+    if (rc != MSG_OK) {
+        printk("Packet init failed (%d)\n", rc);
+        return;
+    }
+
+    /* Add temperature TLV
+     * Value is scaled by 10
+     * Example: 15.5 C is sent as 155
+     */
+    rc = msg_add_tlv_u16(&pkt,
+                          IOTP_TLV_TEMPERATURE,
+                          155);
+    if (rc != MSG_OK) {
+        printk("Temperature TLV failed (%d)\n", rc);
+        return;
+    }
+
+    /* Add humidity TLV
+     * Value is scaled by 10
+     * Example: 65.3 percent is sent as 653
+     */
+    rc = msg_add_tlv_u16(&pkt,
+                          IOTP_TLV_HUMIDITY,
+                          653);
+    if (rc != MSG_OK) {
+        printk("Humidity TLV failed (%d)\n", rc);
+        return;
+    }
+
+    /* Send the constructed packet over UDP */
     int sent = zsock_sendto(sock,
-                            msg, strlen(msg),
+                            pkt.buffer,
+                            pkt.offset,
                             0,
                             (struct sockaddr *)&server,
                             sizeof(server));
@@ -20,9 +67,9 @@ void send_message(void)
         sock = -1;
         return;
     }
- 
+
     send_count++;
-    printk("Sent %d bytes\n", sent, send_count, ROTATION_INTERVAL);
+    printk("Sent %d bytes\n", sent);
 }
 
 void receive_ack(void)
